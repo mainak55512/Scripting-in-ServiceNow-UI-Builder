@@ -1,6 +1,6 @@
 ﻿## Scripting in Data Visualizations
 Most of the work in the UI Builder can be done through configuring various fields available for the data visualizations, but in some cases we need to rely on the good old scripting. Here I have documented some of them.
-<a id="data_source_scripting"></a>
+<a id="data-source-scripting"></a>
 ### Data Source Scripting
 The Data Source script defines the source of the data for your visualization. Here are the available properties:
  1. **allowRealTime**: boolean
@@ -27,7 +27,7 @@ function evaluateProperty({api, helpers}){
 	}];
 }
 ```
-<a id="metric_scripting"></a>
+<a id="metric-scripting"></a>
 ### Metric Scripting
 The metric script defines how the data should be processed and displayed. Here are the available properties:
  1. **dataSource**: string (reference to data source ID)
@@ -64,7 +64,7 @@ function evaluateProperty({api, helpers}){
 	}];
 }
 ```
-<a id="group_by_scripting"></a>
+<a id="group-by-scripting"></a>
 ### Group By Scripting
 The group by script defines how the data should be grouped on the visualization chart. Here are the available properties:
 
@@ -86,7 +86,7 @@ function evaluateProperty({ api, helpers }) {
   }];
 }
 ```
-<a id="data_metric_example"></a>
+<a id="data-metric-example"></a>
 ### Code Example for Data Source, Metric & Group By Script
 Let's say, we want to create a Semi-donut type data visualization element on ‘incident’ table where the condition is:
 
@@ -145,7 +145,7 @@ function evaluateProperty({ api, helpers }) {
   }];
 }
 ```
-<a id="dashboard_redirect"></a>
+<a id="dashboard-redirect"></a>
 ### Scripting in Advanced Dashboards - Redirect
 In Dashboards, there is an event action available called `Advanced Dashboards - Redirect`. It is used to redirect the user to a destination page of the workspace when use user clicks the data visualization.
 
@@ -157,7 +157,7 @@ Here are the available properties:
 5. **title**: string
 6. **external**: string (external url for redirect)
 
-<a id="dashboard_redirect_code"></a>
+<a id="dashboard-redirect-code"></a>
 ### Code Example for Advanced Dashboards - Redirect
 We have created one `List - Simple` type element where we added one event `Reference Link Clicked` and `Advanced Dashboards - Redirect` event handler.
 Other than list type element, the data is available through `event.payload.params`, so for example if we are using `donut` visualization and we want to get the `table`, we will use ``even.payload.params.table``.
