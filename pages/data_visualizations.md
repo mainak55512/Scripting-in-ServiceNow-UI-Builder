@@ -160,7 +160,7 @@ Here are the available properties:
 <a id="dashboard-redirect-code"></a>
 ### Code Example for Advanced Dashboards - Redirect
 We have created one `List - Simple` type element where we added one event `Reference Link Clicked` and `Advanced Dashboards - Redirect` event handler.
-Other than list type element, the data is available through `event.payload.params`, so for example if we are using `donut` visualization and we want to get the `table`, we will use ``even.payload.params.table``.
+Other than list type element, the data is available through `event.payload.params`, so for example if we are using `donut` visualization and we want to get the `table`, we will use ``event.payload.params.table``.
 ```javascript
 function evaluateEvent({ api, event }) {
 	return {
