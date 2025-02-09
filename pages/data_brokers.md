@@ -36,7 +36,7 @@ function transform(input) {
 	* filtered out the empty elements &
 	* removed all the spaces from start and end for all the elements
 	*/
-	let grpList = input.group_infos.split(",").filter(e => e).map(e => e.trim());
+	let grpList = input.group_infos.split(",").filter(e => e.trim());
 	
 	let userList = [];
 	
