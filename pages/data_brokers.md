@@ -1,5 +1,6 @@
 ﻿## Data Broker Scripting
 Data Brokers provide Server-side scripting capabilities for UI Builder Components.
+<a id="transform-data-broker"></a>
 ### Transform Data Brokers
 Transform data broker in UI Builder is a  server-side script that may take input, execute server-side JavaScript code and provide an output for use in UI Builder components.
 We can use server-side APIs of ServiceNow in transform data brokers like `GlideRecord`, `GlideAggregate` etc.
@@ -13,6 +14,8 @@ Here are the available input Properties & Output Schema:
 6. **mandatory**: boolean,
 7. **defaultValue**: any
 ### Example Transform Data Broker
+
+<a id="transform-properties"></a>
 #### Properties:
 ```json
 [
@@ -27,6 +30,7 @@ Here are the available input Properties & Output Schema:
   }
 ]
 ```
+<a id="transform-script"></a>
 #### Script:
 ```javascript
 function transform(input) {
@@ -36,7 +40,7 @@ function transform(input) {
 	* filtered out the empty elements &
 	* removed all the spaces from start and end for all the elements
 	*/
-	let grpList = input.group_infos.split(",").filter(e => e.trim());
+	let grpList = input.group_infos.split(",").filter(e => e).map(e => e.trim());
 	
 	let userList = [];
 	
@@ -53,6 +57,7 @@ function transform(input) {
 	return userList.join(",");
 }
 ```
+<a id="transform-output"></a>
 #### Output Schema:
 ```json
 [
@@ -66,8 +71,11 @@ function transform(input) {
   }
 ]
 ```
+<a id="transform-usage"></a>
 #### Usage:
 You can add the transform data broker in your page in UI Builder with comma separated group sys_ids as input and can bind the output to the elements. To get the output in a client script use the `api` object like this:
 `api.data.<your_databroker_id>.user_infos`(as we have defined the output schema name as 'user_infos').
+
+<a id="transform-notes"></a>
 #### *! NOTE !*: 
 *You have to define `ux_data_broker` type `execute` ACL in order to run the transform data broker (use the `sys_id` of the data broker as the `name` of the ACL).*
