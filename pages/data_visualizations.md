@@ -1,5 +1,6 @@
 ﻿## Scripting in Data Visualizations
 Most of the work in the UI Builder can be done through configuring various fields available for the data visualizations, but in some cases we need to rely on the good old scripting. Here I have documented some of them.
+<a id="data_source_scripting"></a>
 ### Data Source Scripting
 The Data Source script defines the source of the data for your visualization. Here are the available properties:
  1. **allowRealTime**: boolean
