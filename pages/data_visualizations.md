@@ -176,4 +176,23 @@ function evaluateEvent({ api, event }) {
 	};
 }
 ```
+<a id="extras"></a>
+### Extras
 
+<a id="list-filter"></a>
+#### Scripting list filter
+If it is required to script the fixed filter or filter in the display section of a List type element, simply return the encoded query as a string from the evaluateProperty function of the data binding section of the element.
+```javascript
+function evaluateEvent({ api, event }) {
+	return 'active=true^priority=1^ORpriority=3';
+}
+```
+
+<a id="list-column"></a>
+#### Scripting list columns
+If it is required to script the fixed column section of a List type element, simply return the comma separated field names as a string from the evaluateProperty function of the data binding section of the element.
+```javascript
+function evaluateEvent({ api, event }) {
+	return 'caller_id, short_description, priority, u_custom_field';
+}
+```
