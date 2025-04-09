@@ -3,6 +3,7 @@ Most of the work in the UI Builder can be done through configuring various field
 <a id="data-source-scripting"></a>
 ### Data Source Scripting
 The Data Source script defines the source of the data for your visualization. Here are the available properties:
+For Data source type -> Table
  1. **allowRealTime**: boolean
  2. **filterQuery**: string
  3. **id**: string
@@ -11,6 +12,20 @@ The Data Source script defines the source of the data for your visualization. He
  6. **tableOrViewName**: string
  7. **label**: Object
 	1. **message**: string
+
+For Data source type -> Indicator
+ 1. **allowRealTime**: boolean
+ 2. **id**: string
+ 3. **sourceType**: string (in this case 'indicator')
+ 4. **allowTotalValue**: boolean
+ 5. **indicatorType**: 1,2 etc.
+ 6. **isScriptedIndicator**: boolean
+ 7. **label**: string
+ 8. **uuid**: Object
+	1. **breakdowns**: Array of Objects
+		1. **sysId**: sys_id_of_the_breakdown
+		2. **elementSysIds**: [array_of_element_sysids(e.g. assignment group sysids)]
+	2. **indicator**: Indicator_sysId
 #### Example Data Source script:
 ```javascript
 function evaluateProperty({api, helpers}){
@@ -24,6 +39,28 @@ function evaluateProperty({api, helpers}){
 		"label": {
 			"message": "test label"
 		}
+	}];
+}
+```
+```javascript
+function evaluateProperty({api, helpers}){
+	return [{
+		"allowRealtime": true,
+		"allowTotalValue": true,
+		"id": "YOUR_DATA_SOURCE_ID",
+		"sourceType": "indicator",
+		"indicatorType": 1,
+		"isScriptedIndicator": false,
+		"label": "Test"
+		"uuid": {
+			"breakdowns": [
+				{
+					"sysId": "<sys id of the breakdown>",
+					"elementSysIds": ["element sysid"]
+				}
+			],
+			"indicator": "sysid of the indicator"
+		},
 	}];
 }
 ```
@@ -84,6 +121,28 @@ function evaluateProperty({ api, helpers }) {
     ],
     "maxNumberOfGroups": "ALL"
   }];
+}
+```
+<a id="trend-by-scripting"></a>
+### Trend By Scripting
+The group by script defines how the data should be grouped on the visualization chart. Here are the available properties:
+
+1.  **trendByFrequency**: string
+2.  **trendByMinuteInterval**: string/null
+3.  **trendByFields**: Array of Object
+	1. **field**: string
+	2. **metric**: Metric ID (string)
+#### Example Trend By script:
+```javascript
+function evaluateProperty({ api, helpers }) {
+  return {
+	"trendByFrequency": "month",
+	"trendByMinuteInterval": null,
+	"trendByFields": [{
+			"field": "sys_created_on",
+			"metric": "METRIC_ID"
+	}]
+  };
 }
 ```
 <a id="data-metric-example"></a>
