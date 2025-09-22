@@ -15,6 +15,7 @@ This repository aims to document the scripting part of UI Builder as much as pos
 		1. [Scripting list filter](./pages/data_visualizations.md#list-filter)
 		2. [Scripting list column](./pages/data_visualizations.md#list-column)
 		3. [Scripting custom filter with dropdown](./pages/extras.md#custom-filter-scripting)
+		4. [Populate manual data with custom groupBy](./pages/extras.md#manual-datasource-with-custom-groupby-scripting)
 2. [Scripting in Data Brokers](./pages/data_brokers.md)
 	1. [Transform Data Brokers](./pages/data_brokers.md#transform-data-broker)
 		1. [Properties](./pages/data_brokers.md#transform-properties)
