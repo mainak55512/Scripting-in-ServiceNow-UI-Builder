@@ -1,4 +1,3 @@
-
 ## Extras
 <a id="custom-filter-scripting"></a>
 ### Creating custom filters with drop-down
@@ -186,8 +185,8 @@ function transform(input) {
 				}
 				],
 				"label": "Elapsed Percentage",
-				"id": "ELAPSED_PERCENTAGE_GROUP",
-				"fieldType": "reference"
+				"id": "business_percentage", // this should be the field name the on which the groupby will work.
+				"fieldType": "percent_complete"
 			}],
 			"format": {
 				"unitFormat": "{0}"
